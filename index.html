@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WYSIWYG</title>
+        <script type="text/javascript" src="editer.js"></script>
+    </head>
+    <body style="font-family:'Times New Roman', Times, serif">
+        <div class="pannel">
+            <select id="fontChanger">
+                <option value="細明體">細明體</option>
+                <option value="新細明體">新細明體</option>
+                <option value="標楷體">標楷體</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Arial">Arial</option>
+                <option value="Arial Black">Arial Black</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Impact">Impact</option>
+            </select>
+            <select id="fontSizeChanger">
+                <script>
+                    for (var i = 1; i < 8; i++){
+                        document.write("<option value = '" + i + "'>" + i + "</option>");
+                    }
+                </script>
+            </select>
+            <button id="btnBold" title="Bold"><b>B</b></button>
+            <button id="btnItalic" title="Italic"><b><i style="font-family:'Times New Roman', Times, serif">I</i></b></button>
+            <button id="btnUnderln" title="Underline"><b><u>U</u></b></button>
+            <button id="btnStrike" title="Strike"><s>abc</s></button>
+            <button id="btnJLeft" title="Justisfy left">ill</button>
+            <button id="btnJCenter" title="Justisfy center">lil</button>
+            <button id="btnJRight" title="Justisfy right">lli</button>
+            <button id="btnOList" title="Ordered list">(i)</button>
+            <button id="btnUList" title="Unorder list">&bull;</button>
+            <button id="btnFontColor" title="Color"><b>A</b></button>
+            <input type="color" id="colorFont" title="Font color" style="height:20px;width:16px" value="#000000">
+            <button id="btnHighlightColor" title="Highlight" style="background-color: #fcf937;margin-right: 0" value="#fcf937"><b>A</b></button>
+            <input type="color" id="colorHighlight" title="Highlight color" value="#fcf937" style="height:20px;width:16px;">
+            <button id="btnSup" title="Superscript">x<sup>y</sup></button>
+            <button id="btnSub" title="Subscript">x<sub>y</sub></button>
+            <button id="btnLink" title="Hyper link">Link</button>
+        </div>
+        <form action="http://localhost/cgi-bin/op.py" name="myform" id="myform" method="POST">
+            <!--hide the textarea -->
+            <textarea name="op" id="op" style="display: none"></textarea>
+            <iframe marginwidth="25" marginheight="25" name="TextField" id="TextField" style="border:#000000 1px solid; width:700px; height: 300px;"></iframe>
+            <input type="button" value="Submit" style="display:block" onclick="submit_form()">
+        </form>
+        <script>
+            var fonts = document.querySelectorAll("select#fontChanger > option");
+            for (var i = 0; i < fonts.length; i++) {
+                fonts[i].style.fontFamily = fonts[i].value;
+            }
+        </script>
+    </body>
+</html>
